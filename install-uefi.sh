@@ -32,7 +32,7 @@ sed -i 's/#Color/Color/' /etc/pacman.conf
 pacman -Syy
 
 # Installing basic packages
-pacman -S grub efibootmgr lvm2 networkmanager network-manager-applet dialog wpa_supplicant mtools dosfstools reflector base-devel linux-headers avahi xdg-user-dirs xdg-utils gvfs gvfs-smb nfs-utils inetutils dnsutils cups alsa-utils bash-completion openssh rsync reflector acpi acpi_call bridge-utils dnsmasq openbsd-netcat iptables-nft ipset firewalld sof-firmware nss-mdns acpid os-prober ntfs-3g exfatprogs terminus-font zip unzip unrar p7zip htop man-db man-pages pacman-contrib vnstat ncdu iwd fdupes tree lsof
+pacman -S grub efibootmgr lvm2 networkmanager network-manager-applet dialog wpa_supplicant mtools dosfstools reflector base-devel linux-headers xdg-user-dirs xdg-utils gvfs gvfs-smb nfs-utils inetutils net-tools dnsutils cups alsa-utils bash-completion openssh rsync reflector acpi acpi_call bridge-utils dnsmasq openbsd-netcat iptables-nft ipset firewalld sof-firmware nss-mdns acpid os-prober ntfs-3g exfatprogs terminus-font zip unzip unrar p7zip htop man-db man-pages pacman-contrib vnstat ncdu iwd fdupes tree lsof
 # hyperv bluez bluez-utils hplip virt-manager qemu-full edk2-ovmf dmidecode vde2 pipewire pipewire-alsa pipewire-pulse pipewire-jack fwupd
 
 # GPU drivers
@@ -61,7 +61,6 @@ grub-mkconfig -o /boot/grub/grub.cfg
 # systemctl enable reflector.timer
 systemctl enable NetworkManager
 systemctl enable cups.service
-systemctl enable avahi-daemon
 systemctl enable paccache.timer
 systemctl enable fstrim.timer
 systemctl enable firewalld
