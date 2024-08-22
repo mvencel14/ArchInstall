@@ -1,0 +1,11 @@
+# Format USB drive for GPT, 1GB FAT32, and NTFS for the rest of the space.
+mkdir /mnt/{iso,install,boot}
+mount /home/vencel/Downloads/Win11_23H2_Hungarian_x64v2.iso /mnt/iso
+mount /dev/sdb1 /mnt/boot/
+mount /dev/sdb2 /mnt/install/
+rsync -r --progress --exclude sources --delete-before /mnt/iso/ /mnt/boot/
+mkdir /mnt/boot/sources
+cp /mnt/iso/sources/boot.wim /mnt/boot/sources/
+rsync -r --progress --delete-before /mnt/iso/ /mnt/install/
+umount -R /mnt/*
+udisksctl power-off -b /dev/sdb
